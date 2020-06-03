@@ -24,7 +24,7 @@
     loop: ['docker-ce', 'docker-ce-cli', 'containerd.io']
 
 - name: Install Docker module for Python
-   pip:
+  pip:
     name: docker
 
 - name: Install docker-compose
