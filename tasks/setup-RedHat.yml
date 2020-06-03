@@ -4,14 +4,14 @@
     name: "{{item}}"
     state: absent
   with_items:
-    - docker
-    - docker-client
-    - docker-client-latest
-    - docker-common
-    - docker-latest
-    - docker-latest-logrotate
-    - docker-logrotate
-    - docker engine
+    - "docker"
+    - "docker-client"
+    - "docker-client-latest"
+    - "docker-common"
+    - "docker-latest"
+    - "docker-latest-logrotate"
+    - "docker-logrotate"
+    - "docker engine"
 
 - name: Install yum-utils packages
   yum:
@@ -26,13 +26,13 @@
   yum:
     name: "{{item}}"
   with_items:
-    - docker-ce
-    - docker-ce-cli
-    - containerd.io
-    - python3
-    - python3-pip
-    - python3-setuptools
-    - virtualenv
+    - "docker-ce"
+    - "docker-ce-cli"
+    - "containerd.io"
+    - "python3"
+    - "python3-pip"
+    - "python3-setuptools"
+    - "virtualenv"
 
 - name: Install docker compose
   get_url:
