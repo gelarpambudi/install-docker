@@ -1,7 +1,7 @@
 
 - name: Remove docker old version
   yum:
-    name: {{item}}
+    name: "{{item}}"
     state: absent
     with_items:
       - docker
@@ -24,7 +24,7 @@
 
 - name: Install docker
   yum:
-    name: {{item}}
+    name: "{{item}}"
     with_items:
       - docker-ce
       - docker-ce-cli
