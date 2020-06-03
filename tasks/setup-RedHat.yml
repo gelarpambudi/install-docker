@@ -17,17 +17,22 @@
     name: yum-utils
     state: present
 
-#- name: Add docker repository
-#  yum_repository:
-#    baseurl: https://download.docker.com/linux/centos/docker-ce.repo
-#    name: docker
-#    description: Docker YUM repository
+- name: Remove docker YUM repository
+  yum_repository:
+    baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+    name: docker
+    description: Docker YUM repository
+    state: absent
 
 - name: Add docker repository
-  shell: yum-config-manager --add-repo  https://download.docker.com/linux/centos/docker-ce.repo 
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docer-ce.repo   
 
 - name: Install docker
-  shell: yum install {{item}} -y
+  package:
+    name: {{item}}
+    state: present
   with_items: 
     - "docker-ce"
     - "docker-ce-cli"
