@@ -27,16 +27,15 @@
   shell: yum-config-manager --add-repo  https://download.docker.com/linux/centos/docker-ce.repo 
 
 - name: Install docker
-  yum:
-    name: 
-      - "docker-ce"
-      - "docker-ce-cli"
-      - "containerd.io"
-      - "python3"
-      - "python3-pip"
-      - "python3-setuptools"
-      - "virtualenv"
-    state: present
+  shell: yum install {{item}} -y
+  with_items: 
+    - "docker-ce"
+    - "docker-ce-cli"
+    - "containerd.io"
+    - "python3"
+    - "python3-pip"
+    - "python3-setuptools"
+    - "virtualenv"
 
 - name: Install docker compose
   get_url:
