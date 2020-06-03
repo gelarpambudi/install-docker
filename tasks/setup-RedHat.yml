@@ -1,7 +1,15 @@
 
 - name: Remove docker old version
   yum:
-    name: ['docker', 'docker-client',  'docker-client-latest', 'docker-common', 'docker-latest', 'docker-latest-logrotate', 'docker-logrotate', 'docker engine']
+    name:
+      - "docker"
+      - "docker-client"
+      - "docker-client-latest"
+      - "docker-common"
+      - "docker-latest"
+      - "docker-latest-logrotate"
+      - "docker-logrotate"
+      - "docker-engine"
     state: absent
 
 - name: Install yum-utils packages
@@ -15,7 +23,14 @@
 
 - name: Install docker
   yum:
-    name: ['docker-ce', 'docker-ce-cli', 'containerd.io', 'python3', 'python3-pip', 'python3-setuptools', 'virtualenv']
+    name: 
+      - "docker-ce"
+      - "docker-ce-cli"
+      - "containerd.io"
+      - "python3"
+      - "python3-pip"
+      - "python3-setuptools"
+      - "virtualenv"
     state: present
 
 - name: Install docker compose
